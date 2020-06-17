@@ -31,6 +31,7 @@
     "@angular/compiler-cli": "~9.1.7",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-angular": "^8.3.4",
+    "@ngneat/spectator": "^5.9.0",
     "@types/jest": "^26.0.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",

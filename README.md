@@ -1,27 +1,43 @@
-# AngularCherryPick
+# Angular Cherry Pick
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+A set of angular config you can pick
 
-## Development server
+## Add the remote repo to your project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Go on your local repository
+`git remote add pick https://github.com/timothyalcaide/angular-cherry-pick.git`
+`git fetch pick`
 
-## Code scaffolding
+## Pick the config you want
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`git log pick/master`
+Select the <sha> of the commit you want to pick
 
-## Build
+### One commit
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+`git cherry-pick <sha>`
 
-## Running unit tests
+### Two commits
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`git cherry-pick <shaA>..<shaB>`
+A should be older than B
 
-## Running end-to-end tests
+### Range of commits
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+`git cherry-pick <shaA>^..<shaB>`
 
-## Further help
+## Conflict
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+In case you have a conflict, solve it and type
+`git cherry-pick --continue`
+
+## When you are picked commits you want
+
+Instal package 
+`npm i`
+
+Delete pick remote
+`git remote rm pick`
+
+If you want to list the remote repo
+`git remote -v`

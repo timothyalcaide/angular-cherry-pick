@@ -96,5 +96,13 @@
         }
       }
     }
+  },
+  "schematics": {
+    "@schematics/angular": {
+      "component": {
+        "inlineStyle": true,
+        "inlineTemplate": true
+      }
+    }
   }
 }

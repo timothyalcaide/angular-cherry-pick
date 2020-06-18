@@ -15,7 +15,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/angular-cherry-pick",
             "index": "src/index.html",
@@ -24,8 +24,11 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
-            "scripts": []
+            "styles": ["src/tailwind.scss", "src/styles.scss"],
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "extra-webpack.config.js"
+            }
           },
           "configurations": {
             "production": {
@@ -59,9 +62,12 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "angular-cherry-pick:build"
+            "browserTarget": "angular-cherry-pick:build",
+            "customWebpackConfig": {
+              "path": "extra-webpack.config.js"
+            }
           },
           "configurations": {
             "production": {
